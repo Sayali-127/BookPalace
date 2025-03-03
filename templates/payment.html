@@ -1,0 +1,48 @@
+<!-- templates/payment.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body style="background-color:beige">
+    <div style="max-width: 600px; margin: auto; text-align: center; padding: 20px;">
+        <h2>Confirm Your Order</h2>
+        <p><strong>Address:</strong> {{ address.full_name }}, {{ address.address }}, {{ address.city }}, {{ address.zip_code }}, {{ address.country }}</p>
+        <p><strong>Amount to Pay:</strong> ₹{{ amount }}</p> <!-- Displaying the book price -->
+        
+        <button id="pay-button">Proceed to Payment</button>
+    </div>
+
+    <script>
+        document.getElementById('pay-button').onclick = function(e) {
+            e.preventDefault();
+
+            var options = {
+                "key": "{{'rzp_test_iRlbw8JkbDW9pH'}}",  // Razorpay Key ID from settings
+                "amount": "{{data.amount}}", // Amount in paise
+                "currency": "INR",
+                "name": "BookPalace Book Store",
+                "description": "Order Payment",
+                "order_id": "{{ order_id }}",  // Razorpay Order ID
+                "handler": function (response) {
+                    // Redirect to the success page with order details
+                    window.location.href = "/payment/success/?razorpay_payment_id=" + response.razorpay_payment_id + "&razorpay_order_id=" + response.razorpay_order_id;
+                },
+                "prefill": {
+                    "name": "{{ address.full_name }}",
+                    "contact": "{{ address.phone_number }}"
+                },
+                "theme": {
+                    "color": "#CA8787"
+                }
+            };
+
+            var rzp = new Razorpay(options);
+            rzp.open();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+
+   {% block content %}
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+        header {
+            background: #444;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+        .profile-section {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+        .profile-image img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+            border: 3px solid #444;
+        }
+        .profile-info h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        .profile-info p {
+            font-size: 1rem;
+            color: #666;
+        }
+        .book-section {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .book-section h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .book-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .book-card {
+            background: #fefefe;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .book-card:hover {
+            transform: translateY(-5px);
+        }
+        .book-cover img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+        .book-details {
+            padding: 20px;
+        }
+        .book-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #444;
+        }
+        .book-description {
+            font-size: 1rem;
+            color: #777;
+            margin-bottom: 15px;
+        }
+        .read-more-btn {
+            display: inline-block;
+            background: black;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        .read-more-btn:hover {
+            background: #CA8787;
+        }
+    </style>
+</head>
+<body>
+   
+
+    <div class="container" style="margin:80px">
+     
+        <div class="profile-section">
+            <div class="profile-image">
+                <img src="{% static 'images/blogphoto.jpg' %}" alt="Profile Image">
+            </div>
+            <div class="profile-info">
+                <h2>Rebecca Joyce</h2>
+                <p>Hi, I’m Rebecca Joyce, a passionate reader, tea lover, and a curious mind always in search of new stories. My love for books started at a young age, and ever since, I have found myself lost in the pages of fiction, non-fiction, and everything in between. Books are not just stories or information—they are gateways to new worlds, experiences, and perspectives.
+
+                    Through this blog, I’ll be sharing my favorite reads, book recommendations, and my thoughts on various genres and authors. Whether you’re looking for your next great read or just want to connect over a shared passion for literature, I’m excited to have you here.
+                    
+                    Let’s explore the world of books together!</p>
+            </div>
+        </div>
+
+        <!-- Books Section -->
+        <div class="book-section">
+            <h2>My Book Recommendations for you</h2>
+            <div class="book-list">
+                <!-- Book Card 1 -->
+                <div class="book-card">
+                    <div class="book-cover">
+                        <img src="{% static 'images/fluffy.jpg' %}" alt="Book Cover">
+                    </div>
+                    <div class="book-details">
+                        <h3 class="book-title">Fluffy and Me</h3>
+                        <p class="book-description">Fluffy and Me is a heartwarming tale that beautifully captures the bond between a child and their pet. The story explores themes of friendship, loyalty, and the joys of pet ownership. It resonates with anyone who has experienced the unconditional love of a furry companion.In short, Fluffy and Me is a delightful read that celebrates the bond between humans and pets, making it a must-have for any book lover’s collection!.</p>
+                        <a href="#" class="read-more-btn">Get the Book</a>
+                    </div>
+                </div>
+
+                <!-- Book Card 2 -->
+                <div class="book-card">
+                    <div class="book-cover">
+                        <img src="{% static 'images/carol.jpg' %}" alt="Book Cover">
+                    </div>
+                    <div class="book-details">
+                        <h3 class="book-title">A Christmas Carol</h3>
+                        <p class="book-description">Experience the heartwarming tale of Ebenezer Scrooge's redemption in Charles Dickens' timeless classic, A Christmas Carol. Immerse yourself in the spirit of Christmas as you follow Scrooge's journey of self-discovery and transformation. This edition captures the magic and message of the holiday season.Charles Dickens' beloved classic, A Christmas Carol, in a captivating edition
+                            Join Ebenezer Scrooge on his remarkable journey of redemption.</p>
+                        <a href="#" class="read-more-btn">Get the Book</a>
+                    </div>
+                </div>
+
+                <!-- Book Card 3 -->
+                <div class="book-card">
+                    <div class="book-cover">
+                        <img src="{% static 'images/secret.jpg' %}" alt="Book Cover">
+                    </div>
+                    <div class="book-details">
+                        <h3 class="book-title">The Secret Garden</h3>
+                        <p class="book-description">Enter the enchanting world of Frances Hodgson Burnett's timeless classic, The Secret Garden. Follow young Mary Lennox as she discovers a hidden paradise, filled with wonders and secrets waiting to be unlocked. This edition captures the magic and beauty of the garden's transformative power.
+
+                            Captivating edition of Frances Hodgson Burnett's beloved classic, The Secret Garden
+                            </p>
+                        <a href="{% url 'book_list' %}" class="read-more-btn">Get the Book</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+{% endblock content %}
+

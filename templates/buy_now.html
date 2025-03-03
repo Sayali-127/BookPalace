@@ -1,0 +1,8 @@
+<!-- buy_now.html -->
+<h1>Buy {{ book.title }}</h1>
+<form method="POST">
+    {% csrf_token %}
+    <label for="address">Shipping Address:</label>
+    <textarea id="address" name="address" required></textarea>
+    <button type="submit">Confirm Order</button>
+</form>
