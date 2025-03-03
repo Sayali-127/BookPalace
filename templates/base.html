@@ -1,0 +1,230 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <title>Sayali's Book Store</title>
+    <script>
+        function confirmLogout(event) {
+            event.preventDefault();
+            const url = event.currentTarget.getAttribute('href');
+            if (confirm('Are you sure you want to logout?')) {
+                window.location.href = url;
+            }
+        }
+    </script>
+    
+
+</head>
+<body>
+  
+    {% block header %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand ml-auto" href="{% url "Home" %}"><b><em>BookPalace</em>
+        </b></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <form action="/search" method="GET">
+                        <input type="text" name="query" placeholder="Search...">
+                        <button type="submit">Search</button>
+                    </form>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="booksDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Books
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="booksDropdown">
+                        <a class="dropdown-item" href="{% url "book_list" %}">All Books</a>
+                        <a class="dropdown-item" href="#">New Arrivals</a>
+                        <a class="dropdown-item" href="#">Bestsellers</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Authors</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="genresDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Genres
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="genresDropdown">
+                        <a class="dropdown-item" href="#">Fiction</a>
+                        <a class="dropdown-item" href="#">Non-Fiction</a>
+                        <a class="dropdown-item" href="#">Fantasy</a>
+                        <a class="dropdown-item" href="#">Science Fiction</a>
+                    </div>
+                </li>
+              
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <style>
+                            .small-username {
+                                color: black;
+                                
+                                font-size: 18px; 
+                            
+
+                            
+                                
+                            }
+                        </style>
+                        {% if user.is_authenticated %}
+                        <h1 class="small-username">{{user.username|capfirst}}</h1>
+                        
+                    {% else %}
+                        <h1 class="small-username">Welcome, Guest!</h1>
+                    {% endif %}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="accountDropdown">
+                        <a class="dropdown-item" href="{% url "login" %}">Login</a>
+                        <a class="dropdown-item" href="{% url "signup" %}">Sign Up</a>
+                        <a class="dropdown-item" href="{% url "logout" %}" onclick="confirmLogout(event)">Logout</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'cart' %}"><i class="fas fa-shopping-cart"></i> Cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    {% endblock header %}
+
+    {% block content %}
+    
+    
+    {% endblock content %}
+    <br><br>
+
+    {% block footer %}
+
+
+    <div style="border-top: 1px solid #080000; padding-top: 10px;"></div>
+     <!-- footer starts here -->
+     <style>
+        .footer {
+    background-color: white;
+    color: black;
+    padding: 20px 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-logo img {
+    max-width: 150px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.footer-links ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-contact p {
+    margin: 5px 0;
+}
+
+.footer-contact a {
+    color: black;
+    text-decoration: none;
+}
+
+.footer-contact a:hover {
+    text-decoration: underline;
+}
+
+.footer-social a {
+    margin-right: 10px;
+}
+
+.footer-social img {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 10px 0;
+    background-color: white;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+     </style>
+     
+     <footer class="footer" style="background-color: #F8EDE3;">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="static/images/logo.jpg" alt="Bookstore Logo">
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Books</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <p>Contact Us:</p>
+                <p>Email: <a href="mailto:info@bookstore.com">info@bookstore.com</a></p>
+                <p>Phone: (123) 456-7890</p>
+                <p> Address: 123 RC Street, BookTown, California 45678</p>
+            </div>
+            <div class="footer-social" style="height: 50px; width: 30px; display: flex;" >
+                <a href="#"><img src="static/images/fb.jpg" alt="Facebook"></a>
+                <a href="#"><img src="static/images/twitter.jpg" alt="Twitter"></a>
+                <a href="#"><img src="static/images/insta.jpg" alt="Instagram"></a>
+            </div>
+        </div>
+        <div class="footer-bottom" style="background-color: #F8EDE3;">
+            <p>&copy; 2024 Bookstore. All rights reserved.</p>
+        </div>
+    </footer>
+    
+
+
+    
+    {% endblock footer %}
+    
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        /* Basic reset */
+body, h1, p, form, input, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #CA8787, );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.signup-box {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    animation: slideIn 0.5s ease-out;
+}
+
+.signup-box h1 {
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 24px;
+}
+
+.signup-box p {
+    margin-bottom: 20px;
+    color: #555;
+    font-size: 16px;
+}
+
+.textbox {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.textbox input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #CA8787;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.textbox input:focus {
+    border-color: #ff9a9e;
+}
+
+.textbox label {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    color: #aaa;
+    transition: 0.3s;
+    pointer-events: none;
+}
+
+.textbox input:focus + label,
+.textbox input:not(:placeholder-shown) + label {
+    top: -15px;
+    left: 10px;
+    color: black;
+    font-size: 12px;
+}
+
+button {
+    background: #CA8787;
+    border: none;
+    padding: 15px;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: pink;
+}
+
+.login-link {
+    margin-top: 15px;
+}
+
+.login-link a {
+    color: #CA8787;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookstore Signup</title>
+    
+</head>
+<body>
+    <div class="signup-container">
+        <div class="signup-box">
+            <h1>BookPalace Signup</h1>
+            <p>Create your account to start enjoying our book collection.</p>
+            <form method="post">
+                {% csrf_token %}
+                <div class="textbox">
+                    <input type="text" name="username" id="username" required>
+                    <label for="username">Username</label>
+                </div>
+                <div class="textbox">
+                    <input type="email" name="email" id="email" required>
+                    <label for="email">Email</label>
+                </div>
+                <div class="textbox">
+                    <input type="password" name="password" id="password" required>
+                    <label for="password">Password</label>
+                </div>
+                <div class="textbox">
+                    <input type="password" name="password2" id="password2" required>
+                    <label for="password2">Confirm Password</label>
+                </div>
+                <button type="submit">Sign Up</button>
+                <p class="login-link">Already have an account? <a href="{% url 'login' %}">Log In</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

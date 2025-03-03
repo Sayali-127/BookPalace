@@ -1,0 +1,103 @@
+<!-- templates/books/book_list.html -->
+ {% extends "base.html" %}
+ {% load static %}
+<!DOCTYPE html>
+{% block content %}
+<body>
+    <div class="book-list">
+        {% for book in books %}
+        <a href="{% url 'book_detail' book.id %}" class="book-card-link">
+        <div class="book-card">
+            <img src="{{ book.cover_image.url }}" alt="{{ book.title }}">
+            
+            <p class="price" style="color: #38b000;">₹{{ book.price }}</p>
+            <div class="buttons">
+                <form action="" method="GET">
+                    <button type="submit" style=" border-radius: 8px;">Buy</button>
+                </form>
+                {% comment %} <form action="" method="POST">
+                    {% csrf_token %}
+                    <a href="" class="cart-icon-link">
+                        <i class="fas fa-shopping-cart"></i> <!-- Cart icon -->
+                    </a>
+                </form> {% endcomment %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+    
+</body>
+</html>
+
+<style>
+    body{
+        background-color: #e8f8c1;
+    }
+   
+   .book-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columns */
+    gap: 20px; /* Space between the cards */
+    padding: 20px;
+}
+
+.book-card {
+    border: 2px solid #c8d5b9;
+    padding: 15px;
+    text-align: center;
+    background-color: #faf3dd;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.book-card img {
+    max-width: 100%;
+    height: auto;
+}
+
+.book-card .price {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.book-card .buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.book-card .buttons form {
+    margin: 0; /* Remove default margin */
+}
+
+.book-card button {
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.book-card button i {
+    margin-right: 5px; /* Space between icon and text */
+}
+@media (max-width: 1200px) {
+    .book-list {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .book-list {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .book-list {
+        grid-template-columns: 1fr; /* 1 column on extra small screens */
+    }
+}
+
+</style>
+{% endblock content %}

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="cart-container">
+    <h2 class="text-center" style="color: #CA8787; text-decoration: underline;">Your Cart</h2>
+    {% if cart_items %}
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    
+                    <th>Book Title</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart_items %}
+                <tr>
+                  
+                    <td>{{ item.book.title }}</td>
+                    <td>
+                        <form method="post" action="{% url 'update_cart_quantity' item.id %}">
+                            {% csrf_token %}
+                            <input type="number" name="quantity" value="{{ item.quantity }}" min="1" class="quantity-input">
+                            <button type="submit" class="update-btn" style="color:black; border: solid 2px #CA8787;">Update</button>
+                        </form>
+                    </td>
+                    <td style="color: green; font-weight: bolder;">${{ item.book.price }}</td>
+                    <td><a href="{% url 'remove_from_cart' item.id %}" class="remove-btn" style="color: red; box-shadow: #ddd; text-decoration: none; border: solid 2px red; border-radius: 1px;">Remove</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <hr>
+        <div class="cart-summary">
+            <p>Total Price:  <span style="color: green; font-weight: bolder; border: solid 2px black; text-decoration: underline;">₹{{ total_price }}</span></p>
+            <a href="" type="submit" class="checkout-btn" style="color: green; border: solid 2px green;text-decoration: none; border-radius: 12px; ">Proceed to Pay</a>
+        </div>
+    {% else %}
+        <p>Your cart is empty.</p>
+    {% endif %}
+</div>
+{% endblock %}
+
+<style>
+   
+    .quantity-input {
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.update-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.update-btn:hover {
+    background-color: #0056b3;
+}
+.checkout-btn:hover {
+    background-color: black;
+}
+
+</style>
+
+{% block footer %}{% endblock footer %}

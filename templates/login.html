@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookstore Login</title>
+
+    <style>
+        /* Basic reset */
+body, h1, p, form, input, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #CA8787);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.login-box {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    animation: slideIn 0.5s ease-out;
+}
+
+.login-box h1 {
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 24px;
+}
+
+.login-box p {
+    margin-bottom: 20px;
+    color: #555;
+    font-size: 16px;
+}
+
+.textbox {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.textbox input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #CA8787;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.textbox input:focus {
+    border-color: #ff9a9e;
+}
+
+.textbox label {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    color: #aaa;
+    transition: 0.3s;
+    pointer-events: none;
+}
+
+.textbox input:focus + label,
+.textbox input:not(:placeholder-shown) + label {
+    top: -15px;
+    left: 10px;
+    color: black;
+    font-size: 12px;
+}
+
+button {
+    background: #CA8787;
+    border: none;
+    padding: 15px;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: pink;
+}
+
+.signup-link {
+    margin-top: 15px;
+}
+
+.signup-link a {
+    color: #CA8787;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <h1>BookPalace Login</h1>
+            <p>Welcome! Please log in to access your account.</p>
+            <form method="post">
+                {% csrf_token %}
+                <div class="textbox">
+                    <input type="text" name="username" id="username" required>
+                    <label for="username">Username</label>
+                </div>
+                <div class="textbox">
+                    <input type="password" name="password" id="password" required>
+                    <label for="password">Password</label>
+                </div>
+                <button type="submit">Login</button>
+                <p class="signup-link">Don't have an account? <a href="{% url 'signup' %}">Sign Up</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

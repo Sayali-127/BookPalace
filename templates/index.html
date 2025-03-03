@@ -1,0 +1,247 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+
+
+  {% block content %}
+    
+
+   
+    <div class="hero-section">
+        <!-- Content for this section -->
+       <img src="https://m.economictimes.com/thumb/msid-102775399,width-1600,height-900,resizemode-4,imgsize-418392/best-ray-dalio-books.jpg" alt="" width="100%" height="400px">
+       
+    </div>
+   
+    <br>
+    
+    
+   <div class="container-fluid">
+    <div class="row">
+              <p class="text-center" style="color: #354259; font-weight: bold; font-size:40px;">Welcome To BookPalace</p>
+
+
+                <!-- Container for cards -->
+                <p style="color: #CA8787; font-size: 30px; font-weight: lighter; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"><b>Popular Books for you</b></p>         
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; padding: 20px; justify-content: center; height 200px; ">
+       
+        <!-- First row of cards -->
+        <div  style="background: #fff; border: 2px solid #CA8787; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); width: calc(25% - 20px); text-align: center; padding: 10px;">
+            <img src="{% static 'images/book1.jpg' %}" alt="Book 1" style="width: 100%; border-radius: 8px; height: auto;">
+            <h3>Atomic Habits</h3>
+            <p>James Clear</p>
+        </div>
+        <div style="background: #fff; border: 2px solid #CA8787; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); width: calc(25% - 20px); text-align: center; padding: 10px;">
+            <img src="{% static 'images/book2.jpg' %}" alt="Book 2" style="width: 100%; border-radius: 8px; height: auto;">
+            <h3>To Kill a Mockingbird</h3>
+            <p>Harper Lee</p>
+        </div>
+        <div  style="background: #fff; border: 2px solid #CA8787; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); width: calc(25% - 20px); text-align: center; padding: 10px;">
+            <img src="{% static 'images/book3.jpg' %}" alt="Book 3" style="width: 100%; border-radius: 8px; height: auto;">
+            <h3>The Great Gatsby</h3>
+            <p>F. Scott Fitzgerald</p>
+        </div>
+        <div  style="background: #fff; border: 2px solid #CA8787; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); width: calc(25% - 20px); text-align: center; padding: 10px;">
+            <img src="{% static 'images/book4.jpg' %}" alt="Book 4" style="width: 100%; border-radius: 8px; height: auto;">
+            <h3>Pride and Prejudice</h3>
+            <p>Jane Austen</p>
+        </div>
+
+        <!-- Second row of cards -->
+        <div style="background: #fff; border: 2px solid #CA8787; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); width: calc(25% - 20px); text-align: center; padding: 10px;">
+            <img src="{% static 'images/book5.jpg' %}" alt="Book 5" style="width: 100%; border-radius: 8px; height: auto;">
+            <h3>The power of Subconscious Mind</h3>
+            <p>Joseph Murphy</p>
+        </div>
+        <div style="background: #fff; border: 2px solid #CA8787; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); width: calc(25% - 20px); text-align: center; padding: 10px;">
+            <img src="{% static 'images/book6.jpg' %}" alt="Book 6" style="width: 100%; border-radius: 8px; height: auto;">
+            <h3>The Catcher in the Rye</h3>
+            <p>J.D. Salinger</p>
+        </div>
+        <div  style="background: #fff; border: 2px solid #CA8787; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); width: calc(25% - 20px); text-align: center; padding: 10px;">
+            <img src="{% static 'images/book7.jpg' %}" alt="Book 7" style="width: 100%; border-radius: 8px; height: auto;">
+            <h3>The Hobbit</h3>
+            <p>J.R.R. Tolkien</p>
+        </div>
+        <div  style="background: #fff; border: 2px solid #CA8787; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); width: calc(25% - 20px); text-align: center; padding: 10px;">
+            <img src="{% static 'images/book8.jpg' %}" alt="Book 8" style="width: 100%; border-radius: 8px; height: auto;">
+            <h3>Harry Potter and the Sorcerer's Stone</h3>
+            <p>J.K. Rowling</p>
+        </div>
+    </div>
+
+
+
+        </div>
+   </div>
+   {% comment %} About us section starts {% endcomment %}
+   <style>
+    .about-us {
+    background-color: white;
+    padding: 60px 20px;
+    text-align: center;
+    color: #333;
+}
+.about-us h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #e94e77;
+    transition: color 0.8s ease;
+}
+.about-us p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    transition: transform 0.8s ease;
+}
+.about-us img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    margin-top: 20px;
+    transition: transform 0.8s ease;
+}
+.about-us:hover h2 {
+    color: #e94e77;
+}
+.about-us:hover p {
+    transform: scale(1.10);
+}
+.about-us:hover img {
+    transform: scale(1.10);
+}
+.feedback-slider-container {
+    width: 100%;
+    overflow: hidden;
+    background-color: #f9f9f9;
+    padding: 50px 0;
+}
+
+.feedback-slider {
+    display: flex;
+    width: 100%;
+    animation: slide 50s linear infinite;
+}
+
+.feedback { 
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+}
+
+.feedback-image {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.feedback p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.feedback-stars {
+    font-size: 24px;
+    color: #FFD700;
+    margin-bottom: 10px;
+}
+
+.feedback h4 {
+    font-size: 20px;
+    color: #333;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(-200%);
+    }
+    75% {
+        transform: translateX(-300%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+
+
+
+
+   </style>
+
+
+
+   <div class="about-us" data-aos="fade-up">
+    <br>
+    <h2 style="color: #CA8787;">About Us</h2>
+    <br>
+    <p>We are an independent bookstore dedicated to offering a wide selection of books for every type of reader. Our goal is to provide a welcoming space where you can discover new and exciting reads, support local authors, and foster a love of literature.</p>
+
+    <img src="{% static 'images/aboutus.jpg' %}" alt="About Us" height="300px" width="500px" style="padding: 30px;">
+    <img src="{% static 'images/aboutus2.jpg' %}" alt="About Us" height="300px" width="500px" style="padding: 30px">
+    <img src="{% static 'images/aboutus3.jpg' %}" alt="About Us" height="300px" width="500px" style="padding: 30px">
+</div>
+<!-- about us ends -->
+<br>
+<!-- feedback portion -->
+<p class="text-center" style="color: #CA8787; font-size: 30px; font-weight: lighter; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Hear from our Happy Customers</p>
+<div class="feedback-slider-container">
+    <div class="feedback-slider">
+        <div class="feedback">
+            <img src="static/images/person1.jpg" alt="Person 1" class="feedback-image">
+            <p>"This bookstore exceeded my expectations! The staff is incredibly knowledgeable, and the variety of books available is impressive. I found several rare titles I've been searching for. It's my new favorite spot!"</p>
+            <div class="feedback-stars">★★★★☆</div>
+            <h4>- John Doe</h4>
+        </div>
+        <div class="feedback">
+            <img src="static/images/person2.jpg" alt="Person 2" class="feedback-image">
+            <p>"The atmosphere here is so cozy and inviting. I love spending my weekends browsing through the well-organized shelves. The customer service is top-notch, and they always have great recommendations."</p>
+            <div class="feedback-stars">★★★★★</div>
+            <h4>- Jane Smith</h4>
+        </div>
+        <div class="feedback">
+            <img src="static/images/person3.jpg" alt="Person 3" class="feedback-image">
+            <p>"I was amazed by the collection of books on offer, especially the sections dedicated to local authors and independent publishers. The prices are reasonable, and the ambiance makes it a perfect place to lose yourself in a good book."</p>
+            <div class="feedback-stars">★★★★☆</div>
+            <h4>- Liam Johnson</h4>
+        </div>
+        <div class="feedback">
+            <img src="static/images/person4.jpg" alt="Person 4" class="feedback-image">
+            <p>""A gem of a bookstore! The selection is vast, catering to all kinds of readers. The staff is friendly and passionate about books, which makes the experience even more enjoyable. I always leave with something new to read."</p>
+            <div class="feedback-stars">★★★★☆</div>
+            <h4>- jennifer Brown</h4>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+   {% endblock content %}
+     <!-- content cards ends -->
+
+  
+
+
+
+
+
+    
+
+
+
